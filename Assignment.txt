@@ -1,0 +1,22 @@
+Instructions
+The goal of this challenge is to create a basic web weather app in React. The UI design provided alongside this challenge is meant as guidance if needed and you do not have to implement it if you prefer using your own design. The list of requirements below is also here to guide you in the right direction, and should be viewed as necessary rather than sufficient.
+Overall, this challenge is a way for you to showcase your mastery of React and present to us an app that you would feel comfortable making live as a simple weather app, as well as code you’d feel proud of.
+You do not need to make this app live, it just needs to run in localhost. The code should be hosted on a Github repository that you will share with the team for assessment when you’re done.
+You can submit by sending the Github link of the project to alex@idktonight.com.
+Requirements
+Your app must be a single page application built with React.js and Redux
+Allow the user to choose for which city to display weather information - choices should be New York, NY, Chicago, IL, and Miami, FL, with New York being the default
+Allow the user to also enter the name of a city of their choosing
+Any city should also be accessible via direct URL - e.g. accessing “/newyork” should display the same content as a click on “New York” would
+When selecting a city, the app should display a 7-day weather forecast for that city
+By default, each day should show a limited amount of information: day, date, temperature, & weather icon
+Upon clicking on a day, a modal window should open a display additional information: sunset time, sunrise time, description, and wind speed
+Allow the user to refresh the content of the forecast
+Make sure to use the user’s current time zone for dates and time
+The title of the page should be the name of the city currently being displayed
+Use the OpenWeatherMap API to fetch weather data
+Use components to build the UI
+Use Redux Saga (redux-saga) for networking
+
+
+Happy coding!
