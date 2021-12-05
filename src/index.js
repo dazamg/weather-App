@@ -1,13 +1,25 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import App from './App';
+import App from './Components/App';
+import axios from 'axios';
+// Redux
+import { createStore } from 'redux'
+import {  Provider } from 'react-redux'
+import rootReducer from './reducers'
 
+// Redux setup
+axios.defaults.withCredentials = true;
+
+//store
+const store = createStore(rootReducer, )
 
 ReactDOM.render(
-  <React.StrictMode>
+  <Provider store={store}>
+    <React.StrictMode>
     <App />
-  </React.StrictMode>,
+  </React.StrictMode>
+  </Provider>,
   document.getElementById('root')
 );
 

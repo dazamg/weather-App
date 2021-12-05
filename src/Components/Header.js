@@ -14,7 +14,6 @@ const Header = () => {
       
 
         <FormControl isRequired display='flex' ml='13vw'>
-            {/* <FormLabel>EMAIL</FormLabel> */}
           <InputGroup> 
             <Input 
               type="search"
@@ -35,7 +34,6 @@ const Header = () => {
           </Button>
         </FormControl>
         <FormControl isRequired ml='13vw'>
-            {/* <FormLabel>EMAIL</FormLabel> */}
           <InputGroup> 
             <Input 
               type="search"
