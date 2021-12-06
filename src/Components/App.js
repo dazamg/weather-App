@@ -1,6 +1,11 @@
 
-import React from 'react'
-import Header from './Header'
+import React from 'react';
+import {connect} from 'react-redux';
+import {useDispatch, useSelector} from 'react-redux'
+import { getWeatherSuccess } from '../redux/actions/weather';
+
+
+import Header from './Header';
 
 import {    
   FormControl,
@@ -12,8 +17,13 @@ import {
 } from "@chakra-ui/react"
 
 function App() {
+  const dispatch = useDispatch();
+  const users = useSelector(state => state.weatherReducer.users);
+  console.log("$$$$$", users)
+  // const { weather } = useSelector((state) => ({ ...state }));
+
   return (
-    <Box >
+    <Box>
       
       <Box 
         w='100%'
@@ -34,10 +44,16 @@ function App() {
         <Flex align="center" justify="center" as='h2' fontSize='2xl' w='100%' fontFamily='Source Serif Pro, serif' color='rgb(237, 149, 109)' fontWeight='bold'>
           React Weather App
         </Flex>
-        <main className="main_content">
-          {/* add weather fetching component */}
-          <dv></dv>
-        </main>
+        <button onClick={() => dispatch(getWeatherSuccess())}>get weather</button>
+        <div>
+          Weather: {users.map((user => (
+          <div>
+            {user.name}
+            
+          </div>
+            )))}
+            {JSON.stringify(users)}
+        </div>
         <footer className="main_content">
           Page created by yournamehere
         </footer>
@@ -47,4 +63,7 @@ function App() {
   );
 }
 
-export default App;
+// export default connect(null, {
+//   getWeatherRequest
+// })(App);
+export default App

@@ -2,28 +2,30 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import App from './Components/App';
-import axios from 'axios';
+import { BrowserRouter as Router} from 'react-router-dom'
+
 // Redux
-import { createStore } from 'redux'
-import {  Provider } from 'react-redux'
-import rootReducer from './reducers'
+import weatherReducer from './redux/reducers/weather';
+import { createStore, applyMiddleware } from 'redux';
+import {  Provider } from 'react-redux';
+import createSagaMiddleware from 'redux-saga';
+import rootSaga from './redux/sagas'
 
-// Redux setup
-axios.defaults.withCredentials = true;
 
-//store
-const store = createStore(rootReducer, )
+//store 
+const sagaMiddleware = createSagaMiddleware();
+const store = createStore( weatherReducer, applyMiddleware(sagaMiddleware))
+sagaMiddleware.run(rootSaga);
 
 ReactDOM.render(
-  <Provider store={store}>
-    <React.StrictMode>
-    <App />
-  </React.StrictMode>
-  </Provider>,
+  <React.StrictMode>
+      <Router>
+        <Provider store={store}> 
+          <App />
+        </Provider> 
+      </Router> 
+    </React.StrictMode>,
   document.getElementById('root')
 );
 
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
 
