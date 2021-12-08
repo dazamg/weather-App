@@ -1,9 +1,9 @@
 
-import React from 'react';
+import React, {useEffect} from 'react';
 import {connect} from 'react-redux';
 import {useDispatch, useSelector} from 'react-redux'
 import { getWeatherSuccess } from '../redux/actions/weather';
-
+import Geocode from "react-geocode";
 
 import Header from './Header';
 
@@ -16,12 +16,16 @@ import {
   InputGroup,
 } from "@chakra-ui/react"
 
+//geocode Api Key
+Geocode.setApiKey(process.env.REACT_APP_GEO_API_KEY)
+
 function App() {
   const dispatch = useDispatch();
   const users = useSelector(state => state.weatherReducer.users);
   console.log("$$$$$", users)
   // const { weather } = useSelector((state) => ({ ...state }));
 
+  
   return (
     <Box>
       

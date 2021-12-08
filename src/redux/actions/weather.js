@@ -6,7 +6,7 @@ export const GET_WEATHER_SUCCESS= 'GET_WEATHER_SUCCESS';
 export const REQUEST_DATA_ITEM = "REQUEST_DATA_ITEM";
 export const RECEIVE_DATA_ITEM = "RECEIVE_DATA_ITEM";
 
-//export the action and return
+//export the action and return data
 export const getWeatherRequest = data => ({ type: GET_WEATHER_REQUEST, data });
 export const getWeatherSuccess = data => ({ type: GET_WEATHER_SUCCESS, data });
 

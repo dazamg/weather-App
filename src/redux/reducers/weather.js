@@ -7,7 +7,6 @@ const initialState = {
     cityLog: 'New York',
     //modal trigger
     modalStatus: false,
-    // pass down for Modal
     clickedDay: {}
 }
 
@@ -19,7 +18,6 @@ const weatherReducer = (state = initialState, action) => {
                 ...state,
                 weathers: action.data
             }
-        //
         case "RECEIVE_DATA_ITEM":
             return{
                 ...state, 

@@ -9,20 +9,15 @@ console.log(keys)
 
 export const getWeatherData = async (location) => {
     const {lat, lng} = location
-
-    try {
-        const res = await axios.get(`${baseUrl}lat=${lat}&lon=${lng}&exclude=hourly,minutely&appid=${keys}`)
-        .then((response) => {
-            const data = response.json();
-            return data
-        },(error) => {
-            console.log(error)
-        });
-        return res;
-    } catch(e) {
-        console.log(e)
-    }
-}
+    console.log('@@@@@Hit API@@@@')
+      try {
+        const response = await fetch(`${baseUrl}lat=${lat}&lon=${lng}&exclude=hourly,minutely&appid=${keys}`);
+        const data = await response.json();
+        return data;
+      } catch (e) {
+        console.log(e);
+      }
+    };
 // I couldn't get to add a params field
 // export function getWeather() {
 //     return axios.request({

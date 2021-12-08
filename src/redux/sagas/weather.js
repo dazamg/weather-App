@@ -1,6 +1,6 @@
 import { takeLatest, call, fork, put } from 'redux-saga/effects';
 import {GET_WEATHER_REQUEST,getWeatherSuccess, REQUEST_DATA_ITEM, receiveDataItem} from '../actions/weather'
-import {getWeatherData} from '../../api/weather'
+import {getWeatherData} from '../api/weather'
 
 // Generator function
 function* getWeather(action) {
