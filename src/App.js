@@ -13,6 +13,13 @@ import {
   Flex,
   Container,
   Grid,
+  ModalOverlay,
+  ModalContent,
+  ModalHeader,
+  Modal,
+  ModalBody,
+  ModalCloseButton,
+
 } from "@chakra-ui/react"
 
 //geocode Api Key
@@ -25,6 +32,7 @@ const App = (props) => {
   // const { weather } = useSelector((state) => ({ ...state }));
   useEffect(() => {
     document.title = props.cityLog
+    document.title = props.weathers
     Geocode.fromAddress(props.cityLog)
     .then(res => {
         const {lat, lng} = res.results[0].geometry.location
@@ -35,7 +43,7 @@ const App = (props) => {
     console.error(err)
     })
   },[])
-  
+
   return (
     // <Box>
       <Box 
@@ -55,8 +63,8 @@ const App = (props) => {
       <Grid 
         templateRows='repeat(2, 1fr)'
       > <Header/>
-      <Flex align="center" justify="center" as='h2' fontSize='2xl' w='100%' fontFamily='Source Serif Pro, serif' color='rgb(237, 149, 109)' fontWeight='bold'>{props.cityLog}</Flex>
-          <Container style={{"margin-top": "50px"}}textAlign='center'>
+      <Flex align="center" justify="center" as='h2' fontSize='2xl' w='100%' fontFamily='Source Serif Pro, serif' color='rgb(237, 149, 109)' fontWeight='bold'>Today in {props.cityLog}{props.weathers.sunrise}</Flex>
+          <Container style={{"margin-top": "50px"}}>
             <Box as='h3' color='rgb(237, 149, 109)' fontWeight='bold'>
              7 Day Forecast 
             </Box>
@@ -64,6 +72,19 @@ const App = (props) => {
             <WeatherContentList/>
           </Container>
       </Grid>
+
+    {/* <Modal isOpen>
+      <ModalOverlay  />
+      <ModalContent pb={5} >
+        <ModalHeader>Login now</ModalHeader>
+        <ModalCloseButton />
+        <ModalBody>
+          vvhvhgvjhgvjgvgvj
+        </ModalBody>
+      </ModalContent>
+    </Modal> */}
+
+
     </Box>
   );   
     

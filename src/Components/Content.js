@@ -109,7 +109,7 @@ class ContentData extends Component {
             {/* </MenuList> */}
             {/* <FormControl isRequired> */}
                 <Input type='text'>
-                <Input size="mini" onChange={this.handleOnChange} placeholder='Search...' />
+                <Input size="mini" onChange={this.handleOnChange} placeholder='Search for a location' />
                 <Button 
                     color="teal" 
                     inverted type='submit' 

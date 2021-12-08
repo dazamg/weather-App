@@ -3,15 +3,12 @@ import { connect } from 'react-redux';
 import moment from 'moment';
 import {requestModalData} from "../redux/actions/weather"
 import ForecastModal from './Modal'
-import { List } from 'semantic-ui-react'
+// import { List } from 'semantic-ui-react'
 
-// import {
-//     List,
-//     ListItem,
-//     ListIcon,
-//     OrderedList,
-//     UnorderedList,
-//   } from '@chakra-ui/react'
+import {
+    Box, 
+    Badge
+  } from '@chakra-ui/react'
 
 const WeatherContentList = (props) => {
 
@@ -24,31 +21,27 @@ const WeatherContentList = (props) => {
         // 7 days Forecast - map through the weather arr
        return props.weathers.daily.map((ele) => {
    
-            let iconCode = ele.weather[0].icon;
-            let iconUrl = "http://openweathermap.org/img/w/" + iconCode + ".png";
+            let iconImg = ele.weather[0].icon;
+            let icUrl = "http://openweathermap.org/img/w/" + iconImg + ".png";
    
             // converting Kelvin to Fahrenheit 
             let temp = Math.trunc((ele.temp.day - 273.15) * 9/5 + 32)
             return (
-                // <List spacing={3}>
-                //     <ListItem divided key={ele.dt} onClick={() => handleSubmit(ele)}>
-                //         Date: {moment.unix(ele.dt).format("MM/DD/YYYY")} Temp: {temp} °F
-                //         <img id="wicon" src={iconUrl} alt="Weather icon"></img>
-                //     </ListItem>
-                // </List>
-                 <React.Fragment>
-                 <List divided key={ele.dt} onClick={() => handleSubmit(ele)}>
-                   <List.Item >
-                   
-                     <List.Content>
-                         <List.Header as='a'> Date: {moment.unix(ele.dt).format("MM/DD/YYYY")} Temp: {temp} °F</List.Header>
-                         <img id="wicon" src={iconUrl} alt="Weather icon"></img>
-                     </List.Content>
-                   </List.Item>
-                 </List>
-                 <ForecastModal/>
-              </React.Fragment>
-        )
+                <Box maxW='sm' borderWidth='1px' borderRadius='lg' overflow='hidden'>
+                    <Box p='6'>
+                        <Box 
+                            display='flex' 
+                            alignItems='baseline' 
+                            key={ele.dt} >
+                            <Badge borderRadius='md' px='2' colorScheme='teal' onClick={() => handleSubmit(ele)}>
+                                {moment.unix(ele.dt).format("llll").split("2021 11:00 AM")} Temp: {temp} °F
+                                <img id="wicon" src={icUrl} alt="Weather icon"></img>
+                            </Badge>
+                            <ForecastModal onClick={() => handleSubmit(ele)}/>
+                        </Box>
+                    </Box>
+                </Box>
+            )
        })
     } else {
         return null
