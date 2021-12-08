@@ -5,7 +5,7 @@ const initialState = {
     weathers: [],
     //default New York
     cityLog: 'New York',
-    //modal trigger
+    //modal
     modalStatus: false,
     setDay: {}
 }
@@ -22,6 +22,12 @@ const weatherReducer = (state = initialState, action) => {
             return{
                 ...state, 
                 cityLog: action.data.name
+            }
+        case "RECEIVE_MODAL_DATA":
+            return {
+                ...state,
+                modalStatus: action.data.status,
+                setDay: action.data.day
             }
         default:
             return state

@@ -1,4 +1,4 @@
-import axios from 'axios';
+// import axios from 'axios';
 
 //Calling the openweather OneCall Api
 const baseUrl = "http://api.openweathermap.org/data/2.5/onecall?"
