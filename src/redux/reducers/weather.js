@@ -7,7 +7,7 @@ const initialState = {
     cityLog: 'New York',
     //modal trigger
     modalStatus: false,
-    clickedDay: {}
+    setDay: {}
 }
 
 const weatherReducer = (state = initialState, action) => {
