@@ -18,6 +18,7 @@ export const getWeatherData = async (location) => {
         console.log(e);
       }
     };
+
 // I couldn't get to add a params field
 // export function getWeather() {
 //     return axios.request({

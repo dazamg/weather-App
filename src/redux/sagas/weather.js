@@ -3,8 +3,7 @@ import {GET_WEATHER_REQUEST,getWeatherSuccess,
         REQUEST_DATA_ITEM, 
         receiveDataItem, 
         REQUEST_MODAL_DATA,
-        receiveModalData
-} from '../actions/weather'
+        receiveModalData} from '../actions/weather'
 import {getWeatherData} from '../api/weather'
 
 // Generator function

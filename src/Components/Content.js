@@ -1,19 +1,21 @@
 import React, { Component } from 'react'
 import Geocode from "react-geocode"
 import { connect } from 'react-redux'
-import { getWeatherRequest, requestDataItem } from "../redux/actions"
+import { getWeatherRequest, requestDataItem } from "../redux/actions/weather"
 // I couldn't get the useDispatch and useSelector to work 
 //in functional component so i had to switch to a class component
 // import {useDispatch, useSelector} from 'react-redux'
-
-import {
-    Menu,
-    MenuButton,
-    MenuList,
-    MenuItem,
-    Button,
-    Input
-  } from '@chakra-ui/react'
+import { Menu, Input, Button } from 'semantic-ui-react'
+// import {
+//     Menu,
+//     MenuButton,
+//     MenuList,
+//     MenuItem,
+//     Button,
+//     Input,
+//     FormControl,
+//     InputGroup
+//   } from '@chakra-ui/react'
 
 //geocode Api Key
 Geocode.setApiKey(process.env.REACT_APP_GEO_API_KEY)
@@ -23,6 +25,7 @@ class ContentData extends Component {
     state ={
         inputVal: ""
     }
+    //The title of the page should be the name of the city currently being displayed
     // use similar to useEffect to get component to update on load
     componentDidUpdate(){
         document.title = this.props.cityLog
@@ -80,30 +83,41 @@ class ContentData extends Component {
 
     return (
         <Menu>
-            <MenuButton as={Button} >
-                Actions
-            </MenuButton>
-            <MenuList>
-                <MenuItem 
+            {/* <MenuButton
+                as={Button}
+            >
+             New York
+            </MenuButton> */}
+            {/* <MenuList> */}
+                <Menu.Item 
                     name='New York'
-                    active={cityLog === 'New York'}
-                    onClick={this.handleSelectedCities}></MenuItem>
-                <MenuItem 
+                    isActive={cityLog === 'New York'}
+                    onClick={this.handleSelectedCities}>NewYork</Menu.Item>
+                <Menu.Item 
                     name='Los Angeles'
-                    active={cityLog === 'Los Angeles'}
-                    onClick={this.handleSelectedCities}></MenuItem>
+                    isActive={cityLog === 'Los Angeles'}
+                    onClick={this.handleSelectedCities}>Los Angeles</Menu.Item>
 
-                <MenuItem 
+                <Menu.Item 
                     name='Miami'
-                    active={cityLog === 'Miami'}
-                    onClick={this.handleSelectedCities}>Mark as Draft</MenuItem>
-                <MenuItem>
-                    <Input type='text'  action>
-                    <Input size="mini" onChange={this.handleOnChange} placeholder='Search...' />
-                    <Button color="violet" inverted type='submit' size="mini" onClick={this.handleSubmit}>Search</Button>
-                    </Input>
-                </MenuItem>
-            </MenuList>
+                    isActive={cityLog === 'Miami'}
+                    onClick={this.handleSelectedCities}>Miami</Menu.Item>
+                {/* <MenuItem>
+                
+                </MenuItem> */}
+                
+            {/* </MenuList> */}
+            {/* <FormControl isRequired> */}
+                <Input type='text'>
+                <Input size="mini" onChange={this.handleOnChange} placeholder='Search...' />
+                <Button 
+                    color="teal" 
+                    inverted type='submit' 
+                    size="mini"
+                    onClick={this.handleSubmit}>Search</Button>
+                </Input>
+
+            {/* </FormControl> */}
         </Menu>
     )
     }

@@ -23,12 +23,7 @@ const weatherReducer = (state = initialState, action) => {
                 ...state, 
                 cityLog: action.data.name
             }
-        case "RECEIVE_MODAL_DATA":
-            return {
-                ...state,
-                modalStatus: action.data.status,
-                setDay: action.data.day
-            }
+        
         default:
             return state
     }

@@ -1,51 +1,21 @@
 import React from 'react'
 import {    
-    FormControl,
-    Button,
     Box,
     Flex,
-    Input,
-    InputGroup,
   } from "@chakra-ui/react"
+
+import ContentData from './Content'
 
 
 const Header = () => {
     return (
-        <Box as='nav' display='flex'  >
-      
-
-        <FormControl isRequired display='flex' ml='13vw'>
-          <InputGroup> 
-            <Input 
-              type="search"
-              className="form-control"
-              placeholder="EMAIL"
-              focusBorderColor="rgb(237, 149, 109)"
-              variant='filled'
-            />
-          </InputGroup>
-          <Button 
-            ml='0.5vw'
-            background="rgb(75, 97, 113)" 
-            color='white'
-            className="btn"  
-    
-          >
-            Search
-          </Button>
-        </FormControl>
-        <FormControl isRequired ml='13vw'>
-          <InputGroup> 
-            <Input 
-              type="search"
-              className="form-control"
-              placeholder="EMAIL"
-              focusBorderColor="rgb(237, 149, 109)"
-              variant='filled'
-            />
-          </InputGroup>
-        </FormControl>
-      </Box>
+        <Box as='nav' display='flex' >
+           <Flex pr="10" justify="right" as='h2' fontSize='2xl' fontFamily='Source Serif Pro, serif' color='rgb(237, 149, 109)' fontWeight='bold' >
+             Weather App
+           </Flex>
+           <ContentData/>
+          
+        </Box>
     )
 }
 
