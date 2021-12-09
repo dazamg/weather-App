@@ -51,7 +51,6 @@ const App = (props) => {
         backgroundSize="cover"
         width="100vw"
       >
-      
       <Grid 
         templateRows='repeat(2, 1fr)'
       > <Header/>
@@ -61,8 +60,7 @@ const App = (props) => {
              7 Day Forecast 
             </Box>
             
-            <WeatherContentList/>
-            
+            <WeatherContentList/> 
           </Container>
       </Grid>
     </Box>
@@ -71,11 +69,11 @@ const App = (props) => {
  
 }
 
+
+const mapStateToProps = state => ({ ...state });
+
 // export default connect(null, {
 //   getWeatherRequest
 // })(App);
-const mapStateToProps = state => ({ ...state });
-
-
 
 export default connect(mapStateToProps, {getWeatherRequest, requestDataItem})(App);
