@@ -14,7 +14,6 @@ const Header = () => {
              Weather App
            </Flex>
            <ContentData/>
-          
         </Box>
     )
 }

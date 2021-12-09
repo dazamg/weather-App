@@ -37,14 +37,13 @@ const App = (props) => {
   },[])
 
   return (
-    // <Box>
       <Box 
         w='100%'
         minH='100vh'
         bgImage="url('https://images.unsplash.com/photo-1534068731687-d70176c2e7d5?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=987&q=80')"
-        bgSize='contain'
+        bgSize='auto'
         bgRepeat='no-repeat'
-        bgPosition='-30%'
+       
         display='flex'
         flexDirection='column'
         backgroundPosition="center"
@@ -72,8 +71,6 @@ const App = (props) => {
 
 const mapStateToProps = state => ({ ...state });
 
-// export default connect(null, {
-//   getWeatherRequest
-// })(App);
+
 
 export default connect(mapStateToProps, {getWeatherRequest, requestDataItem})(App);

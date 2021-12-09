@@ -3,7 +3,7 @@
 ## Live Demo
 
 Click Here.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+Open to view it in the browser.
 
 ### `npm start`
 
@@ -12,4 +12,4 @@ Technology Used: Reactjs, Redux, Chakri UI, semantic ui, moment, OpenWeatherApi 
 
 ### `npm test`
 
-Run npm i to install all dependencies
+Run npm i to install all dependenc
