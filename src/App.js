@@ -1,4 +1,3 @@
-
 import React, {useEffect} from 'react';
 import {connect} from 'react-redux';
 // import {useDispatch, useSelector} from 'react-redux'
@@ -13,21 +12,12 @@ import {
   Flex,
   Container,
   Grid,
-  ModalOverlay,
-  ModalContent,
-  ModalHeader,
-  Modal,
-  ModalBody,
-  ModalCloseButton,
-  Button,
-  useDisclosure
 } from "@chakra-ui/react"
 
 //geocode Api Key
 Geocode.setApiKey(process.env.REACT_APP_GEO_API_KEY)
 
 const App = (props) => {
-  const { isOpen, onOpen, onClose } = useDisclosure()
   // const dispatch = useDispatch();
   // const users = useSelector(state => state.weatherReducer.users);
   // console.log("$$$$$", users)
@@ -72,6 +62,7 @@ const App = (props) => {
             </Box>
             
             <WeatherContentList/>
+            
           </Container>
       </Grid>
     </Box>

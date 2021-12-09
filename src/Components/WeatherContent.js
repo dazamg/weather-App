@@ -15,14 +15,21 @@ import {
     ModalCloseButton,
     useDisclosure,
     Badge,
-    Button
+    Button,
   } from '@chakra-ui/react'
+  
+  import { SearchIcon} from '@chakra-ui/icons'
 
 const WeatherContentList = (props) => {
     const { isOpen, onOpen, onClose } = useDisclosure()
     const handleSubmit = (ele) => {
         let data = {day: ele, status: true}
         props.requestModalData(data)
+    }
+    //Allow the user to refresh the content of the forecast
+    const reload = () => {
+        window.location.reload();
+        onClose()
     }
 
     if(props.weathers.length !== 0){
@@ -43,11 +50,12 @@ const WeatherContentList = (props) => {
                             key={result.dt} >
                             <Badge fontFamily='Source Serif Pro, serif' key={result.dt} color='black' fontWeight='bold' borderRadius='md' onClick={onOpen}>
                                 {moment.unix(result.dt).format("llll").split("2021 11:00 AM")} Temp: {temp} °F
-                                <Button src={icUrl} alt="Weather icon" key={result.dt} onClick={() => handleSubmit(result)}> </Button>
+                                <img id="wicon" src={icUrl} alt="Weather icon" sizes="8px"></img>
+                                <Button  key={result.dt} onClick={() => handleSubmit(result)}><SearchIcon w={8} h={8} color="red.500" /> </Button>
                                 
                             </Badge>
                             <Box>
-                        <Modal isOpen={isOpen} onClose={onClose}>
+                        <Modal isOpen={isOpen} onClose={reload}>
                         <ModalOverlay />
                         <ModalContent>
                         <ModalHeader as="h1" textAlign="center" fontFamily='Source Serif Pro, serif' color='rgb(237, 149, 109)' fontWeight='bold'>More Info</ModalHeader>
