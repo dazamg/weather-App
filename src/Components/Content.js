@@ -25,6 +25,7 @@ class ContentData extends Component {
     state ={
         inputVal: ""
     }
+    
     //The title of the page should be the name of the city currently being displayed
     // use similar to useEffect to get component to update on load
     componentDidUpdate(){

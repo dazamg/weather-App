@@ -45,7 +45,7 @@ const App = (props) => {
         bgRepeat='no-repeat'
        
         display='flex'
-        flexDirection='column'
+
         backgroundPosition="center"
         backgroundSize="cover"
         width="100vw"
@@ -63,8 +63,7 @@ const App = (props) => {
           </Container>
       </Grid>
     </Box>
-  );   
-    
+  );     
  
 }
 

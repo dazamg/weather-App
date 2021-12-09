@@ -54,30 +54,28 @@ const WeatherContentList = (props) => {
                                 <Button  key={result.dt} onClick={() => handleSubmit(result)}><SearchIcon w={8} h={8} color="red.500" /> </Button>
                                 
                             </Badge>
-                        <Box>
+                        </Box>
                     </Box>
+                    <Modal isOpen={isOpen} onClose={reload}>
+                        <ModalOverlay />
+                        <ModalContent>
+                        <ModalHeader as="h1" textAlign="center" fontFamily='Source Serif Pro, serif' color='rgb(237, 149, 109)' fontWeight='bold'>Weather Forecast for the day</ModalHeader>
+                        <ModalCloseButton />
+                        <ModalBody textAlign="right" >
+                            <Box fontFamily='Source Serif Pro, serif' as="h3">{moment().format('llll')}</Box>
+                            <Box fontFamily='Source Serif Pro, serif' as="h3">Description: {result.weather? result.weather[0].description : null}</Box>
+                            <Box fontFamily='Source Serif Pro, serif' as="h3">Wind speed: {result.wind_speed}</Box>
+                            <Box as="h3">Sunrise: {moment.unix(result.sunrise).format('h:mm:ss a')}</Box>
+                            <Box as="h3">Sunset: {moment.unix(result.sunset).format('h:mm:ss a')}</Box>
+
+                            <Box as="h3">Humidity{result.humidity}</Box>
+
+                        </ModalBody>
+                        </ModalContent>
+                    </Modal>
                 </Box>
-            </Box>
-            <Modal isOpen={isOpen} onClose={reload}>
-                <ModalOverlay />
-                <ModalContent>
-                <ModalHeader as="h1" textAlign="center" fontFamily='Source Serif Pro, serif' color='rgb(237, 149, 109)' fontWeight='bold'>Weather Forecast for the day</ModalHeader>
-                <ModalCloseButton />
-                <ModalBody textAlign="right" >
-                    <Box fontFamily='Source Serif Pro, serif' as="h3">{moment().format('llll')}</Box>
-                    <Box fontFamily='Source Serif Pro, serif' as="h3">Description: {result.weather? result.weather[0].description : null}</Box>
-                    <Box fontFamily='Source Serif Pro, serif' as="h3">Wind speed: {result.wind_speed}</Box>
-                    <Box as="h3">Sunrise: {moment.unix(result.sunrise).format('h:mm:ss a')}</Box>
-                    <Box as="h3">Sunset: {moment.unix(result.sunset).format('h:mm:ss a')}</Box>
-
-                    <Box as="h3">Humidity{result.humidity}</Box>
-
-                </ModalBody>
-                </ModalContent>
-            </Modal>
-        </Box>
-    )
-})
+            )
+        })
     } else {
         return null
     }

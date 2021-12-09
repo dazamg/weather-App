@@ -12,4 +12,4 @@ Technology Used: Reactjs, Redux, Chakri UI, semantic ui, moment, OpenWeatherApi 
 
 ### `npm test`
 
-Run npm i to install all dependenc
+Run npm i to install all dependencies
