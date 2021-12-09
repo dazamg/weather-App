@@ -19,13 +19,15 @@ import {
   Modal,
   ModalBody,
   ModalCloseButton,
-
+  Button,
+  useDisclosure
 } from "@chakra-ui/react"
 
 //geocode Api Key
 Geocode.setApiKey(process.env.REACT_APP_GEO_API_KEY)
 
 const App = (props) => {
+  const { isOpen, onOpen, onClose } = useDisclosure()
   // const dispatch = useDispatch();
   // const users = useSelector(state => state.weatherReducer.users);
   // console.log("$$$$$", users)
@@ -63,8 +65,8 @@ const App = (props) => {
       <Grid 
         templateRows='repeat(2, 1fr)'
       > <Header/>
-      <Flex align="center" justify="center" as='h2' fontSize='2xl' w='100%' fontFamily='Source Serif Pro, serif' color='rgb(237, 149, 109)' fontWeight='bold'>Today in {props.cityLog}{props.weathers.sunrise}</Flex>
-          <Container style={{"margin-top": "50px"}}>
+      <Flex align="center" justify="center" as='h2' fontSize='2xl' w='100%' fontFamily='Source Serif Pro, serif' color='rgb(237, 149, 109)' fontWeight='bold'>Today in {props.cityLog}</Flex>
+          <Container>
             <Box as='h3' color='rgb(237, 149, 109)' fontWeight='bold'>
              7 Day Forecast 
             </Box>
@@ -72,19 +74,6 @@ const App = (props) => {
             <WeatherContentList/>
           </Container>
       </Grid>
-
-    {/* <Modal isOpen>
-      <ModalOverlay  />
-      <ModalContent pb={5} >
-        <ModalHeader>Login now</ModalHeader>
-        <ModalCloseButton />
-        <ModalBody>
-          vvhvhgvjhgvjgvgvj
-        </ModalBody>
-      </ModalContent>
-    </Modal> */}
-
-
     </Box>
   );   
     
