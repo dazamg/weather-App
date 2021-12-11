@@ -21,7 +21,8 @@ import {
   import { SearchIcon} from '@chakra-ui/icons'
 
 const WeatherContentList = (props) => {
-    const { isOpen,SlideIn, onOpen, onClose } = useDisclosure()
+    const { isOpen, onOpen, onClose } = useDisclosure()
+
     const handleSubmit = (ele) => {
         let data = {day: ele, status: true}
         props.requestModalData(data)
@@ -41,6 +42,7 @@ const WeatherContentList = (props) => {
    
             // converting to Fahrenheit 
             let temp = Math.trunc((result.temp.day - 273.15) * 9/5 + 32)
+            
             return (
                 <Box maxW='sm' borderWidth='1px' borderRadius='lg' overflow='hidden'>
                     <Box p='6'>

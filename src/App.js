@@ -19,7 +19,7 @@ import {
 Geocode.setApiKey(process.env.REACT_APP_GEO_API_KEY)
 
 const App = (props) => {
-  const [temps , setTemps ] = useState('')
+ 
   // const dispatch = useDispatch();
   // const users = useSelector(state => state.weatherReducer.users);
   // console.log("$$$$$", users)
@@ -46,7 +46,7 @@ const App = (props) => {
       <Grid 
         templateRows='repeat(2, 1fr)'
       > <Header/>
-      <Flex align="center" justify="center" as='h2' fontSize='2xl' w='100%' fontFamily='Source Serif Pro, serif' color='rgb(237, 149, 109)' fontWeight='bold'>Today in {props.cityLog} Temp: {temps}°F</Flex>
+      <Flex align="center" justify="center" as='h2' fontSize='2xl' w='100%' fontFamily='Source Serif Pro, serif' color='rgb(237, 149, 109)' fontWeight='bold'>Today in {props.cityLog}</Flex>
           <Container >
              <Square position="flex" >
                
