@@ -35,7 +35,7 @@ const WeatherContentList = (props) => {
     if(props.weathers.length !== 0){
         // 7 days Forecast - map through the weather arr
        return props.weathers.daily.map((result) => {
-   
+            console.log("%%%%%$#$@", result)
             let iconImg = result.weather[0].icon;
             let icUrl = "http://openweathermap.org/img/w/" + iconImg + ".png";
    
