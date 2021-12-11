@@ -1,4 +1,4 @@
-import React, {useEffect} from 'react';
+import React, {useEffect, useState} from 'react';
 import {connect} from 'react-redux';
 // import {useDispatch, useSelector} from 'react-redux'
 // 7 days forecast
@@ -19,17 +19,19 @@ import {
 Geocode.setApiKey(process.env.REACT_APP_GEO_API_KEY)
 
 const App = (props) => {
+  const [temps , setTemps ] = useState('')
   // const dispatch = useDispatch();
   // const users = useSelector(state => state.weatherReducer.users);
   // console.log("$$$$$", users)
   // const { weather } = useSelector((state) => ({ ...state }));
   useEffect(() => {
     document.title = props.cityLog
-    document.title = props.weathers
+
     Geocode.fromAddress(props.cityLog)
     .then(res => {
         const {lat, lng} = res.results[0].geometry.location
          props.getWeatherRequest({lat, lng});
+         console.log("wwww", res)
         
     },
     err => {
@@ -44,21 +46,8 @@ const App = (props) => {
       <Grid 
         templateRows='repeat(2, 1fr)'
       > <Header/>
-      <Flex align="center" justify="center" as='h2' fontSize='2xl' w='100%' fontFamily='Source Serif Pro, serif' color='rgb(237, 149, 109)' fontWeight='bold'>Today in {props.cityLog}</Flex>
+      <Flex align="center" justify="center" as='h2' fontSize='2xl' w='100%' fontFamily='Source Serif Pro, serif' color='rgb(237, 149, 109)' fontWeight='bold'>Today in {props.cityLog} Temp: {temps}°F</Flex>
           <Container >
-            
-            {/* <Box 
-            w='40%'
-            minH='40vh'
-            bgImage="url('https://images.unsplash.com/photo-1534068731687-d70176c2e7d5?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=987&q=80')"
-            bgSize='auto'
-            bgRepeat='no-repeat'
-          
-            display='flex'
-            flexDirection='column'
-            backgroundPosition="center"
-            backgroundSize="cover"
-            width="40vw"></Box> */}
              <Square position="flex" >
                
                <Box marginLeft="45"> 

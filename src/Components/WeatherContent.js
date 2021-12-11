@@ -53,11 +53,12 @@ const WeatherContentList = (props) => {
                                 <img id="wicon" src={icUrl} alt="Weather icon"></img>
                                 <Button  key={result.dt} onClick={() => handleSubmit(result)}><SearchIcon w={8} h={8} color="red.500" /> </Button>
                                 
+                                
                             </Badge>
                         </Box>
                     </Box>
                     <Modal isOpen={isOpen} onClose={reload}>
-                        <ModalOverlay />
+                        <ModalOverlay opacity="10"/>
                         <ModalContent pb={5}>
                         <ModalHeader as="h1" textAlign="center" fontFamily='Source Serif Pro, serif' color='rgb(237, 149, 109)' fontWeight='bold'>Weather Forecast for the day</ModalHeader>
                         <ModalCloseButton />
@@ -68,7 +69,7 @@ const WeatherContentList = (props) => {
                             <Box as="h3">Sunrise: {moment.unix(result.sunrise).format('h:mm:ss a')}</Box>
                             <Box as="h3">Sunset: {moment.unix(result.sunset).format('h:mm:ss a')}</Box>
 
-                            <Box as="h3">Humidity{result.humidity}</Box>
+                            <Box as="h3">Humidity{result.temp.morn}</Box>
 
                         </ModalBody>
                         </ModalContent>

@@ -92,16 +92,16 @@ class ContentData extends Component {
             {/* <MenuList> */}
                 <Menu.Item 
                     name='New York'
-                    isActive={cityLog === 'New York'}
+                    isactive="true"
                     onClick={this.handleSelectedCities}>NewYork</Menu.Item>
                 <Menu.Item 
                     name='Los Angeles'
-                    isActive={cityLog === 'Los Angeles'}
+                    isactive="true"
                     onClick={this.handleSelectedCities}>Los Angeles</Menu.Item>
 
                 <Menu.Item 
                     name='Miami'
-                    isActive={cityLog === 'Miami'}
+                    isactive="true"
                     onClick={this.handleSelectedCities}>Miami</Menu.Item>
                 {/* <MenuItem>
                 
