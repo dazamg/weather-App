@@ -12,6 +12,7 @@ import {
   Flex,
   Container,
   Grid,
+  Square
 } from "@chakra-ui/react"
 
 //geocode Api Key
@@ -38,32 +39,51 @@ const App = (props) => {
 
   return (
       <Box 
-        w='100%'
-        minH='100vh'
-        bgImage="url('https://images.unsplash.com/photo-1534068731687-d70176c2e7d5?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=987&q=80')"
-        bgSize='auto'
-        bgRepeat='no-repeat'
-       
-        display='flex'
-
-        backgroundPosition="center"
-        backgroundSize="cover"
-        width="100vw"
+      bgColor='grey'
       >
       <Grid 
         templateRows='repeat(2, 1fr)'
       > <Header/>
       <Flex align="center" justify="center" as='h2' fontSize='2xl' w='100%' fontFamily='Source Serif Pro, serif' color='rgb(237, 149, 109)' fontWeight='bold'>Today in {props.cityLog}</Flex>
-          <Container>
-            <Box as='h3' color='rgb(237, 149, 109)' fontWeight='bold'>
-             7 Day Forecast 
-            </Box>
+          <Container >
             
-            <WeatherContentList/> 
+            {/* <Box 
+            w='40%'
+            minH='40vh'
+            bgImage="url('https://images.unsplash.com/photo-1534068731687-d70176c2e7d5?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=987&q=80')"
+            bgSize='auto'
+            bgRepeat='no-repeat'
+          
+            display='flex'
+            flexDirection='column'
+            backgroundPosition="center"
+            backgroundSize="cover"
+            width="40vw"></Box> */}
+             <Square position="flex" >
+               
+               <Box marginLeft="45"> 
+                <Box as='h3' color='rgb(237, 149, 109)' fontWeight='bold' >
+                  7 Day Forecast 
+                </Box>  <WeatherContentList/> </Box>
+                <Box backgroundColor="#222"
+                    bgImage="url('https://images.unsplash.com/photo-1534068731687-d70176c2e7d5?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=987&q=80')"
+                    backgroundPosition="right"
+                    backgroundSize="cover"
+                    backgroundRepeat="no-repeat"
+                    width="40vw"
+                    height="60vh"
+                    p="10"
+                    opacity="0.9"
+                    zIndex=""
+                    m="45"
+                ></Box>    
+            </Square>
+           
           </Container>
       </Grid>
     </Box>
-  );     
+  );   
+    
  
 }
 

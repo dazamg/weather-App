@@ -21,7 +21,7 @@ import {
   import { SearchIcon} from '@chakra-ui/icons'
 
 const WeatherContentList = (props) => {
-    const { isOpen, onOpen, onClose } = useDisclosure()
+    const { isOpen,SlideIn, onOpen, onClose } = useDisclosure()
     const handleSubmit = (ele) => {
         let data = {day: ele, status: true}
         props.requestModalData(data)
@@ -58,7 +58,7 @@ const WeatherContentList = (props) => {
                     </Box>
                     <Modal isOpen={isOpen} onClose={reload}>
                         <ModalOverlay />
-                        <ModalContent>
+                        <ModalContent pb={5}>
                         <ModalHeader as="h1" textAlign="center" fontFamily='Source Serif Pro, serif' color='rgb(237, 149, 109)' fontWeight='bold'>Weather Forecast for the day</ModalHeader>
                         <ModalCloseButton />
                         <ModalBody textAlign="right" >
