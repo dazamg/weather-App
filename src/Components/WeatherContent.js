@@ -47,7 +47,7 @@ const WeatherContentList = (props) => {
                         <Box 
                             display='flex' 
                             alignItems='baseline' 
-                            key={result.dt} >
+                             >
                             <Badge fontFamily='Source Serif Pro, serif' key={result.dt} color='black' fontWeight='bold' borderRadius='md' onClick={onOpen}>
                                 {moment.unix(result.dt).format("llll").split("2021 11:00 AM")} Temp: {temp} °F
                                 <img id="wicon" src={icUrl} alt="Weather icon"></img>
