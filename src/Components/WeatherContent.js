@@ -39,7 +39,7 @@ const WeatherContentList = (props) => {
             console.log("%%%%%$#$@", result)
             let iconImg = result.weather[0].icon;
             let icUrl = "http://openweathermap.org/img/w/" + iconImg + ".png";
-   
+          
             // converting to Fahrenheit 
             let temp = Math.trunc((result.temp.day - 273.15) * 9/5 + 32)
             
@@ -60,8 +60,8 @@ const WeatherContentList = (props) => {
                         </Box>
                     </Box>
                     <Modal isOpen={isOpen} onClose={reload}>
-                        <ModalOverlay opacity="10"/>
-                        <ModalContent pb={5}>
+                        <ModalOverlay />
+                        <ModalContent>
                         <ModalHeader as="h1" textAlign="center" fontFamily='Source Serif Pro, serif' color='rgb(237, 149, 109)' fontWeight='bold'>Weather Forecast for the day</ModalHeader>
                         <ModalCloseButton />
                         <ModalBody textAlign="right" >

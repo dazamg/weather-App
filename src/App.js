@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react';
+import React, {useEffect} from 'react';
 import {connect} from 'react-redux';
 // import {useDispatch, useSelector} from 'react-redux'
 // 7 days forecast
@@ -41,7 +41,7 @@ const App = (props) => {
 
   return (
       <Box 
-      bgColor='grey'
+      bgColor='	honeydew'
       >
       <Grid 
         templateRows='repeat(2, 1fr)'
