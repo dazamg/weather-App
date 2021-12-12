@@ -42,7 +42,12 @@ const WeatherContentList = (props) => {
           
             // converting to Fahrenheit 
             let temp = Math.trunc((result.temp.day - 273.15) * 9/5 + 32)
-            
+            let sun = moment.unix(result.sunset).format('h a')
+            let sunr = moment.unix(result.sunrise).format('h a')
+            let des = result.weather[0].description
+            let hum = result.wind_speed
+            console.log('&*&*&', des)
+            console.log('&*&*&', hum)
             return (
                 <Box maxW='sm' borderWidth='1px' borderRadius='lg' overflow='hidden'>
                     <Box p='6'>
@@ -66,12 +71,10 @@ const WeatherContentList = (props) => {
                         <ModalCloseButton />
                         <ModalBody textAlign="right" >
                             <Box fontFamily='Source Serif Pro, serif' as="h3">{moment().format('llll')}</Box>
-                            <Box fontFamily='Source Serif Pro, serif' as="h3">Description: {result.weather? result.weather[0].description : null}</Box>
-                            <Box fontFamily='Source Serif Pro, serif' as="h3">Wind speed: {result.wind_speed}</Box>
-                            <Box as="h3">Sunrise: {moment.unix(result.sunrise).format('h:mm:ss a')}</Box>
-                            <Box as="h3">Sunset: {moment.unix(result.sunset).format('h:mm:ss a')}</Box>
-
-                            <Box as="h3">Humidity{result.temp.morn}</Box>
+            <Box fontFamily='Source Serif Pro, serif' as="h3">Description: {des}</Box>
+                            <Box fontFamily='Source Serif Pro, serif' as="h3">Wind speed: {hum}</Box>
+                            <Box as="h3">Sunrise: {sunr}</Box>
+                            <Box as="h3">Sunset: {sun}</Box>
 
                         </ModalBody>
                         </ModalContent>

@@ -80,7 +80,6 @@ class ContentData extends Component {
 
 
     render() {
-        const { cityLog } = this.props
 
     return (
         <Menu>
@@ -103,12 +102,7 @@ class ContentData extends Component {
                     name='Miami'
                     isactive="true"
                     onClick={this.handleSelectedCities}>Miami</Menu.Item>
-                {/* <MenuItem>
-                
-                </MenuItem> */}
-                
-            {/* </MenuList> */}
-            {/* <FormControl isRequired> */}
+
                 <Input type='text'>
                 <Input size="mini" onChange={this.handleOnChange} placeholder='Search for a location' />
                 <Button 

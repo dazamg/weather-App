@@ -6,6 +6,7 @@ import WeatherContentList from './Components/WeatherContent'
 import { requestDataItem , getWeatherRequest } from './redux/actions/weather';
 import Geocode from "react-geocode";
 import Header from './Components/Header';
+import moment from 'moment';
 
 import {    
   Box,
@@ -14,12 +15,13 @@ import {
   Grid,
   Square
 } from "@chakra-ui/react"
+import WeatherSlideShow from './Components/WeatherSlideShow';
 
 //geocode Api Key
 Geocode.setApiKey(process.env.REACT_APP_GEO_API_KEY)
 
 const App = (props) => {
- 
+  
   // const dispatch = useDispatch();
   // const users = useSelector(state => state.weatherReducer.users);
   // console.log("$$$$$", users)
@@ -38,6 +40,7 @@ const App = (props) => {
     console.error(err)
     })
   },[])
+  console.log(Object.values(props.weathers))
 
   return (
       <Box 
@@ -54,18 +57,7 @@ const App = (props) => {
                 <Box as='h3' color='rgb(237, 149, 109)' fontWeight='bold' >
                   7 Day Forecast 
                 </Box>  <WeatherContentList/> </Box>
-                <Box backgroundColor="#222"
-                    bgImage="url('https://images.unsplash.com/photo-1534068731687-d70176c2e7d5?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=987&q=80')"
-                    backgroundPosition="right"
-                    backgroundSize="cover"
-                    backgroundRepeat="no-repeat"
-                    width="40vw"
-                    height="60vh"
-                    p="10"
-                    opacity="0.9"
-                    zIndex=""
-                    m="45"
-                ></Box>    
+                <WeatherSlideShow/>
             </Square>
            
           </Container>
