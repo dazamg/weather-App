@@ -14,17 +14,17 @@ import {
     ModalBody,
     ModalCloseButton,
     useDisclosure,
-    Badge,
-    Button,
+    List,
+    ListItem,
+    Button
   } from '@chakra-ui/react'
   
   import { SearchIcon} from '@chakra-ui/icons'
 
 const WeatherContentList = (props) => {
-    const { isOpen, onOpen, onClose } = useDisclosure()
-
-    const handleSubmit = (ele) => {
-        let data = {day: ele, status: true}
+    const { onOpen, onClose } = useDisclosure()
+    const handleSubmit = (result) => {
+        let data = {day: result, status: true}
         props.requestModalData(data)
     }
     //Allow the user to refresh the content of the forecast
@@ -32,7 +32,6 @@ const WeatherContentList = (props) => {
         window.location.reload();
         onClose()
     }
-
     if(props.weathers.length !== 0){
         // 7 days Forecast - map through the weather arr
        return props.weathers.daily.map((result) => {
@@ -42,43 +41,36 @@ const WeatherContentList = (props) => {
           
             // converting to Fahrenheit 
             let temp = Math.trunc((result.temp.day - 273.15) * 9/5 + 32)
-            let sun = moment.unix(result.sunset).format('h a')
-            let sunr = moment.unix(result.sunrise).format('h a')
-            let des = result.weather[0].description
-            let hum = result.wind_speed
-            console.log('&*&*&', des)
-            console.log('&*&*&', hum)
             return (
-                <Box maxW='sm' borderWidth='1px' borderRadius='lg' overflow='hidden'>
-                    <Box p='6'>
-                        <Box 
-                            display='flex' 
-                            alignItems='baseline' 
-                             >
-                            <Badge fontFamily='Source Serif Pro, serif' key={result.dt} color='black' fontWeight='bold' borderRadius='md' onClick={onOpen}>
-                                {moment.unix(result.dt).format("llll").split("2021 11:00 AM")} Temp: {temp} °F
-                                <img id="wicon" src={icUrl} alt="Weather icon"></img>
-                                <Button  key={result.dt} onClick={() => handleSubmit(result)}><SearchIcon w={8} h={8} color="red.500" /> </Button>
-                                
-                                
-                            </Badge>
-                        </Box>
+                <Box maxW='sm' borderWidth='1px' borderRadius='lg' overflow='hidden'> 
+                    <Box 
+                        display='flex' 
+                        alignItems='baseline' 
+                    >
+                        <List>
+                            <ListItem onClick={onOpen}>
+                            {moment.unix(result.dt).format("llll").split("2021 11:00 AM")} Temp: {temp} °F
+                            <img id="wicon" src={icUrl} alt="Weather icon"></img>
+                            <Button  key={result.dt} onClick={() => handleSubmit(result)}><SearchIcon w={8} h={8} color="red.500" /> </Button>
+                            </ListItem>
+                        </List>   
                     </Box>
-                    <Modal isOpen={isOpen} onClose={reload}>
-                        <ModalOverlay />
-                        <ModalContent>
+                <Modal
+                    isOpen={props.status}
+                    onClose={reload}
+                >
+                    <ModalOverlay />
+                    <ModalContent>
                         <ModalHeader as="h1" textAlign="center" fontFamily='Source Serif Pro, serif' color='rgb(237, 149, 109)' fontWeight='bold'>Weather Forecast for the day</ModalHeader>
                         <ModalCloseButton />
                         <ModalBody textAlign="right" >
-                            <Box fontFamily='Source Serif Pro, serif' as="h3">{moment().format('llll')}</Box>
-            <Box fontFamily='Source Serif Pro, serif' as="h3">Description: {des}</Box>
-                            <Box fontFamily='Source Serif Pro, serif' as="h3">Wind speed: {hum}</Box>
-                            <Box as="h3">Sunrise: {sunr}</Box>
-                            <Box as="h3">Sunset: {sun}</Box>
-
+                            <Box fontFamily='Source Serif Pro, serif' as="h3">Description: {props.day.weather? props.day.weather[0].description : null}</Box>
+                            <Box fontFamily='Source Serif Pro, serif' as="h3">Sunrise: {moment.unix(props.day.sunrise).format('h:mm:ss a')}</Box>
+                            <Box fontFamily='Source Serif Pro, serif' as="h3" >Sunset: {moment.unix(props.day.sunset).format('h:mm:ss a')}</Box>
+                            <Box as="h3">Wind speed: {props.day["wind_speed"]}</Box>
                         </ModalBody>
-                        </ModalContent>
-                    </Modal>
+                    </ModalContent>        
+                </Modal>
                 </Box>
             )
         })
@@ -89,13 +81,11 @@ const WeatherContentList = (props) => {
 
 
 const mapStateToProps = (state) => {
- 
     return {
        weathers: state.weathers,
        day: state.setDay,
        status: state.modalStatus
     }
-  }
+}
   
-  
-  export default connect(mapStateToProps, {requestModalData})(WeatherContentList)
+export default connect(mapStateToProps, {requestModalData})(WeatherContentList)

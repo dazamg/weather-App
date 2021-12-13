@@ -1,6 +1,7 @@
 import React, {useEffect} from 'react';
 import {connect} from 'react-redux';
 // import {useDispatch, useSelector} from 'react-redux'
+
 // 7 days forecast
 import WeatherContentList from './Components/WeatherContent'
 import { requestDataItem , getWeatherRequest } from './redux/actions/weather';
@@ -16,7 +17,7 @@ import {
   Square
 } from "@chakra-ui/react"
 import WeatherSlideShow from './Components/WeatherSlideShow';
-
+import TodayDisplay from './Components/TodayDisplay'
 //geocode Api Key
 Geocode.setApiKey(process.env.REACT_APP_GEO_API_KEY)
 
@@ -41,7 +42,7 @@ const App = (props) => {
     })
   },[])
   console.log(Object.values(props.weathers))
-
+ 
   return (
       <Box 
       bgColor='	honeydew'
@@ -49,10 +50,9 @@ const App = (props) => {
       <Grid 
         templateRows='repeat(2, 1fr)'
       > <Header/>
-      <Flex align="center" justify="center" as='h2' fontSize='2xl' w='100%' fontFamily='Source Serif Pro, serif' color='rgb(237, 149, 109)' fontWeight='bold'>Today in {props.cityLog}</Flex>
+      <Flex align="center" justify="center" as='h2' fontSize='2xl' w='100%' fontFamily='Source Serif Pro, serif' color='rgb(237, 149, 109)' fontWeight='bold'>Today in {props.cityLog} </Flex>
           <Container >
              <Square position="flex" >
-               
                <Box marginLeft="45"> 
                 <Box as='h3' color='rgb(237, 149, 109)' fontWeight='bold' >
                   7 Day Forecast 
