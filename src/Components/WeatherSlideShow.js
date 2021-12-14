@@ -25,7 +25,6 @@ function WeatherSlideShow() {
   const [delay] = React.useState(4000);
 
   useInterval(() => {
-    // Your custom logic here
     value === 4 ? setValue(1) : setValue(value + 1);
     arr.map(i => {
       return (i.show = "none");
@@ -35,8 +34,7 @@ function WeatherSlideShow() {
 
   function useInterval(callback, delay) {
     const savedCallback = useRef();
-  
-    // Remember the latest function.
+    
     useEffect(() => {
       savedCallback.current = callback;
     }, [callback]);

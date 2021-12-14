@@ -7,7 +7,6 @@ import WeatherContentList from './Components/WeatherContent'
 import { requestDataItem , getWeatherRequest } from './redux/actions/weather';
 import Geocode from "react-geocode";
 import Header from './Components/Header';
-import moment from 'moment';
 
 import {    
   Box,
@@ -17,7 +16,7 @@ import {
   Square
 } from "@chakra-ui/react"
 import WeatherSlideShow from './Components/WeatherSlideShow';
-import TodayDisplay from './Components/TodayDisplay'
+// import TodayWeatherDisplay from './Components/TodayWeatherDisplay'
 //geocode Api Key
 Geocode.setApiKey(process.env.REACT_APP_GEO_API_KEY)
 
@@ -50,7 +49,14 @@ const App = (props) => {
       <Grid 
         templateRows='repeat(2, 1fr)'
       > <Header/>
-      <Flex align="center" justify="center" as='h2' fontSize='2xl' w='100%' fontFamily='Source Serif Pro, serif' color='rgb(237, 149, 109)' fontWeight='bold'>Today in {props.cityLog} </Flex>
+      <Flex 
+        align="center" 
+        justify="center" 
+        as='h2' fontSize='2xl' 
+        w='100%' 
+        fontFamily='Source Serif Pro, serif' 
+        color='rgb(237, 149, 109)' 
+        fontWeight='bold'>Today in {props.cityLog}</Flex>
           <Container >
              <Square position="flex" >
                <Box marginLeft="45"> 

@@ -2,20 +2,11 @@ import React, { Component } from 'react'
 import Geocode from "react-geocode"
 import { connect } from 'react-redux'
 import { getWeatherRequest, requestDataItem } from "../redux/actions/weather"
+
 // I couldn't get the useDispatch and useSelector to work 
 //in functional component so i had to switch to a class component
 // import {useDispatch, useSelector} from 'react-redux'
 import { Menu, Input, Button } from 'semantic-ui-react'
-// import {
-//     Menu,
-//     MenuButton,
-//     MenuList,
-//     MenuItem,
-//     Button,
-//     Input,
-//     FormControl,
-//     InputGroup
-//   } from '@chakra-ui/react'
 
 //geocode Api Key
 Geocode.setApiKey(process.env.REACT_APP_GEO_API_KEY)
@@ -56,7 +47,6 @@ class ContentData extends Component {
     }
 
     handleSubmit = () => {
-        //form control -- GA
         let name = this.state.inputVal
         this.props.requestDataItem({name})
         // Update location coordinates to lat lng
@@ -70,8 +60,7 @@ class ContentData extends Component {
        err => {
          console.error(err)
        })
-     
-       //clear state 
+
        this.setState({
          inputVal: ""
        })
@@ -83,12 +72,6 @@ class ContentData extends Component {
 
     return (
         <Menu>
-            {/* <MenuButton
-                as={Button}
-            >
-             New York
-            </MenuButton> */}
-            {/* <MenuList> */}
                 <Menu.Item 
                     name='New York'
                     isactive="true"
@@ -111,8 +94,6 @@ class ContentData extends Component {
                     size="mini"
                     onClick={this.handleSubmit}>Search</Button>
                 </Input>
-
-            {/* </FormControl> */}
         </Menu>
     )
     }

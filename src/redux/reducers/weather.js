@@ -35,13 +35,4 @@ const weatherReducer = (state = initialState, action) => {
     }
 }
 
-// export function weatherReducer(state = { items: []}, action){
-//     switch(action.type){
-//         case Types.GET_WEATHER_SUCCESS:
-//             return { ...state, items: action.items}
-//         default: 
-//                 return state;
-//     }
-// }
-
 export default weatherReducer;
