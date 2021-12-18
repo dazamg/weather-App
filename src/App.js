@@ -39,7 +39,7 @@ const App = (props) => {
     err => {
     console.error(err)
     })
-  },[])
+  },[props])
   console.log(Object.values(props.weathers))
  
   return (
