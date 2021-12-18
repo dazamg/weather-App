@@ -1,6 +1,6 @@
 {
   "name": "weather-forecast",
-  "homepage": "https://vercel.com/dazamg/weather-app",
+  "homepage": "https://weather-app-pi-lemon.vercel.app/",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
