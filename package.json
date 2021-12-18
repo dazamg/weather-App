@@ -1,5 +1,6 @@
 {
   "name": "weather-forecast",
+  "homepage": "https://vercel.com/dazamg/weather-app",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
